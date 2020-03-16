@@ -1,0 +1,72 @@
+http:
+  routers:
+    # traefik:
+    #   entryPoints:
+    #     - dashboard
+    #   rule: "Host(`127.0.0.1`) && PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
+    #   service: api@internal
+    #   middlewares:
+    #     - dashboard-auth
+
+    # nginx:
+    #   entryPoints:
+    #     - http
+    #   rule: "Host(`chrisshort.dev`)"
+    #   service: nginx
+    #   middlewares:
+    #     - redirect-to-https
+
+    # nginx-secure:
+    #   entryPoints:
+    #     - https
+    #   rule: "Host(`chrisshort.dev`)"
+    #   service: nginx
+    #   tls:
+    #     # Use ACME HTTP Challenge defined in 'traefik.yml' to get valid cert
+    #     certResolver: letsencrypt
+
+    traefik-secure:
+      entryPoints:
+        - https
+      # Activate this router if Client requests specific subdomain and '/dashboard' or '/api'
+      # rule: "Host(`chrisshort.dev`) && (PathPrefix(`/api/`) || PathPrefix(`/dashboard/`))"
+      rule: "Host(`traefik.chrisshort.dev`)"
+      service: api@internal
+      middlewares:
+        - dashboard-auth
+      tls:
+        # Use ACME HTTP Challenge defined in 'traefik.yml' to get valid cert
+        certResolver: letsencrypt
+
+    https-redirect:
+      entryPoints:
+        - http
+      # Activate this Router on any Host requested
+      rule: "hostregexp(`{host:.+}`)"
+      service: dummy
+      middlewares:
+        - redirect-to-https
+
+  middlewares:
+    dashboard-auth:
+      basicAuth:
+        users:
+          # - "admin:t47A#Dp81"
+          - "admin:$2y$05$hkh2ZrrJm6KXL3Hz/8ALC.lJeYw9ldFwsW6dLqfvyHqJcERTB4yTq"
+
+    redirect-to-https:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+  services:
+    dummy:
+      loadBalancer:
+        servers:
+          - url: localhost
+
+    # nginx:
+    #   loadBalancer:
+    #     server:
+    #       # - url: localhost
+    #       port: 9090

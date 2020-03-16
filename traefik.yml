@@ -1,0 +1,33 @@
+entryPoints:
+  dashboard:
+    address: :8080
+  http:
+    address: :80
+  https:
+    address: :443
+
+api:
+  dashboard: true
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      httpChallenge:
+        # used during the challenge
+        entryPoint: http
+      email: shortwchris@gmail.com
+      storage: /letsencrypt/acme.json
+      # Use Let's Encrypt Staging CA when testing!
+      # caServer: https://acme-staging-v02.api.letsencrypt.org/directory
+
+providers:
+  docker:
+    exposedByDefault: false
+    network: web
+  file:
+      filename: dynamic_conf.yml
+      watch: true
+
+log:
+  level: INFO
+accessLog: {}

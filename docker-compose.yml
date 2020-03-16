@@ -1,0 +1,55 @@
+version: "3.7"
+
+networks:
+  web:
+    name: web
+    driver: bridge
+    # external: true
+
+services:
+  traefik:
+    image:  traefik:2.1
+    restart: unless-stopped
+    container_name: traefik
+    # depends_on:
+    #     - nginx
+    ports:
+      - 80:80
+      - 443:443
+      # - 8080:8080
+    networks:
+      - web
+      # - proxy
+      # - intern
+    volumes:
+      - $PWD/traefik.yml:/traefik.yml
+      - $PWD/dynamic_conf.yml:/dynamic_conf.yml
+      - $PWD/letsencrypt:/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.routers.auth.basic.users=admin:$$2y$$05$$hkh2ZrrJm6KXL3Hz/8ALC.lJeYw9ldFwsW6dLqfvyHqJcERTB4yTq"
+    
+  nginx:
+    image: nginx:1.17.8
+    restart: unless-stopped
+    container_name: nginx
+    networks:
+      - web
+    volumes:
+      - $PWD/static:/usr/share/nginx/html:ro
+      - $PWD/nginx.conf:/etc/nginx/conf.d/default.conf
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nginx.entrypoints=http"
+      - "traefik.http.routers.nginx.rule=Host(`chrisshort.dev`)"
+      - "traefik.http.middlewares.nginx-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.nginx.middlewares=nginx-https-redirect"
+      - "traefik.http.routers.nginx-secure.entrypoints=https"
+      - "traefik.http.routers.nginx-secure.rule=Host(`chrisshort.dev`)"
+      - "traefik.http.routers.nginx-secure.tls=true"
+      - "traefik.http.routers.nginx-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.nginx-secure.service=nginx"
+      - "traefik.http.services.nginx.loadbalancer.server.port=9090"
+      
+    
