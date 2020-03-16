@@ -4,23 +4,17 @@ networks:
   web:
     name: web
     driver: bridge
-    # external: true
 
 services:
   traefik:
     image:  traefik:2.1
     restart: unless-stopped
     container_name: traefik
-    # depends_on:
-    #     - nginx
     ports:
       - 80:80
       - 443:443
-      # - 8080:8080
     networks:
       - web
-      # - proxy
-      # - intern
     volumes:
       - $PWD/traefik.yml:/traefik.yml
       - $PWD/dynamic_conf.yml:/dynamic_conf.yml

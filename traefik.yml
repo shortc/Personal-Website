@@ -17,8 +17,6 @@ certificatesResolvers:
         entryPoint: http
       email: shortwchris@gmail.com
       storage: /letsencrypt/acme.json
-      # Use Let's Encrypt Staging CA when testing!
-      # caServer: https://acme-staging-v02.api.letsencrypt.org/directory
 
 providers:
   docker:
