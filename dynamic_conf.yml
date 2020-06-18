@@ -22,7 +22,7 @@ http:
     dashboard-auth:
       basicAuth:
         users:
-          - "admin:$2y$05$hkh2ZrrJm6KXL3Hz/8ALC.lJeYw9ldFwsW6dLqfvyHqJcERTB4yTq"
+          - "admin:#######"
 
     redirect-to-https:
       redirectScheme:

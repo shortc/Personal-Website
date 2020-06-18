@@ -15,7 +15,7 @@ certificatesResolvers:
       httpChallenge:
         # used during the challenge
         entryPoint: http
-      email: shortwchris@gmail.com
+      email: #######
       storage: /letsencrypt/acme.json
 
 providers:
