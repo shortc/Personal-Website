@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Christopher Short</title>
-    <link rel="apple-touch-icon" sizes="180x180" href=../media/favicon.png>
-    <link rel="icon" type="image/png" sizes="32x32" href=../media/favicon.png>
+    <link rel="apple-touch-icon" sizes="180x180" href=media/favicon.png>
+    <link rel="icon" type="image/png" sizes="32x32" href=media/favicon.png>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,21 +19,21 @@
     <meta name="twitter:description" content=""/>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:500,100,300" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" media="screen" href=../css/normalize.css />
-    <link rel="stylesheet" type="text/css" media="screen" href=../css/main.css/>
-    <script src=../js/feather.min.js></script>
+    <link rel="stylesheet" type="text/css" media="screen" href=css/normalize.css />
+    <link rel="stylesheet" type="text/css" media="screen" href=css/main.css />
+    <script src=js/feather.min.js></script>
     <!-- <script src=js/main.js></script> -->
 
 </head>
 <body>
     <div class="container wrapper">
        <div class="header">
-          <img src=../media/profile.jpg class="profile_image">
+          <img src=media/profile.jpg class="profile_image">
           <h1 class="site-title">Christopher Short</h1>
           <div class="site-affilation">
              <span class="affilation">
                 <ul class="flat">
-                   <li class="position">Graduate, William &amp; Mary</li>
+                   <li class="position">2020 Graduate, William &amp; Mary</li>
                    <li class="email">cshort@email.wm.edu</li>
                 </ul>
              </span>
@@ -43,7 +43,7 @@
                    <a href="https://linkedin.com/in/short-c" title="LinkedIn"><i data-feather="linkedin"></i></a>
                    |
                    <!-- <a href="https://blog.chrisshort.dev" class="blog_cv">[blog]</a> -->
-                   <a href="../media/short-resume.pdf" class="blog_cv">[resume]</a>
+                   <a href="media/short-resume.pdf" class="blog_cv">[resume]</a>
                 </ul>
              </nav>
           </div>
@@ -72,15 +72,39 @@
                 </span>
                 <span class="project_description">
                 My website serves as an extention to my resume/cv and it also serves as a demonstration of some of my experience with industry leading DevOps tools. 
-                It was created using Docker, Traefik, Nginx, LetsEncrypt, Digitial Ocean's smallest droplet, and a Hugo theme that I stripped from the Hugo engine.
+                It was created using Docker, Traefik, Nginx, LetsEncrypt, Digitial Ocean's smallest droplet, and the html and css is from Hugo theme that I stripped 
+                from the Hugo engine and then applied my own changes to.
                 </span>
              </li>
              <li>
+               <span class="project_name"> URL Shortener, Spring 2020</span>
+               <!-- <span class="code_blog">
+               [<a href="https://github.com/shortc/my-website">code</a>]
+               </span> -->
+               <span class="project_description">
+                  I built a URL shortener for W&M's IT department. It is built on two flask apps, 
+                  one that takes the short URL, looks up the original URL in a Redis instance, and gives back the redirect to the original URL. 
+                  The other provides the UI for generating short URLs and interacts with a MySQL database that’s responsible for storing 
+                  CAS attributes of each user as well as the list of short URLs that are associated with that user. The dev environment used Docker-Compose 
+                  for easy configuration and the prod envrionment uses Kubernetes.
+               </span>
+            </li>
+             <li>
                 <span class="project_name"> IT Server Configuration, Fall 2019</span>
                 <span class="project_description">
-                I utilized Vagrant with Virtualbox as the provider to mirror the William &amp; Mary&rsquo; Coputer Science Department&rsquo;s filer and lab machines for stability testing.
+                I utilized Vagrant with Virtualbox as the provider to mirror the William &amp; Mary&rsquo; 
+                Coputer Science Department&rsquo;s filer and lab machines for stability testing.
                 </span>
              </li>
+             <li>
+               <span class="project_name"> Couchbase AWR, Summer 2019</span>
+               <span class="project_description">
+                  I built a Couchbase monitoring repository using Python, similar to Oracle’s AWR, to help Sabre response teams identify Couchbase cluster, node, 
+                  and bucket performance in the event of an outage. It was made up of two parts. The first python script scrapped all of the Couchbases RESTful
+                  APIs to grab the metrics and output it to a JSON file. The second python script took a JSON file as an input and formated the data, wrote to a HTML file, and then send
+                  the HTML file to a Oracle dashboard to be displayed.
+               </span>
+              </li>
              <li>
                 <span class="project_name"> OS 161 Kernel &amp; Shell Development, Spring 2019</span>
                 <span class="code_blog" display=inline>
@@ -95,7 +119,7 @@
              <li>
                <span class="project_name"> Ray Tracing Spheres, Spring 2018</span>
                <span class="code_blog">
-               [<a href="https://github.com/shortc/ray-traced-spheres">code</a>
+               [<a href="https://github.com/shortc/ray-traced-spheres">code</a>]
                </span>
                <span class="project_description">
                I created an image renderer using C++ that takes in a file containing a list of 3D coordinates in vectorspace that represent spheres and 
@@ -106,8 +130,8 @@
                 <span class="project_name"> Application Vulnerablility Testing, Spring 2018</span>
                 <span class="code_blog">
                 [<a href="https://github.com/shortc/app-reconnaissance.git">code</a>]
-                [<a href="../media/short-plan.pdf">plan</a>]
-                [<a href="../media/short-report.pdf">paper</a>]
+                [<a href="media/short-plan.pdf">plan</a>]
+                [<a href="media/short-report.pdf">paper</a>]
                 </span>
                 <span class="project_description">
                 I evaluated 100 Android appplications for cases of SSL vulnerabilities and permission misuse utilizing 
