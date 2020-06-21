@@ -22,7 +22,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     labels:
       - "traefik.enable=true"
-      - "traefik.routers.auth.basic.users=admin:$$2y$$05$$hkh2ZrrJm6KXL3Hz/8ALC.lJeYw9ldFwsW6dLqfvyHqJcERTB4yTq"
+      - "traefik.routers.auth.basic.users=admin:#######"
     
   nginx:
     image: nginx:1.17.8
