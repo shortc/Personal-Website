@@ -53,8 +53,10 @@
        </div>
        <div class="introduction">
           <span>
-          My name is Christopher Short and I graduated from William and Mary with a B.S. in Computer Science in May 2020. I am currently looking for full-time employment in either a software development or devops role.
-          My interests include software development, system administration and cybersecurity. I am a quick learner and I thoroughly enjoy problem solving and tinkering. This leads right into my hobbies: building keyboards, working on cars, and building computers.
+          My name is Christopher Short and I graduated from William and Mary with a B.S. in Computer Science in May 2020. I am currently 
+          looking for full-time employment in either a software development or devops role. My interests include software development, 
+          system administration and cybersecurity. I am a quick learner and I thoroughly enjoy problem solving and tinkering. 
+          This leads right into my hobbies: building keyboards, working on cars, and building computers.
           </span>
           <br>
           <span>
@@ -82,7 +84,7 @@
                [<a href="https://github.com/shortc/my-website">code</a>]
                </span> -->
                <span class="project_description">
-                  I built a URL shortener for W&M's IT department. It is built on two flask apps, 
+                  I built a URL shortener for W&amp;M's IT department. It is built on two flask apps, 
                   one that takes the short URL, looks up the original URL in a Redis instance, and gives back the redirect to the original URL. 
                   The other provides the UI for generating short URLs and interacts with a MySQL database that’s responsible for storing 
                   CAS attributes of each user as well as the list of short URLs that are associated with that user. The dev environment used Docker-Compose 
@@ -90,10 +92,12 @@
                </span>
             </li>
              <li>
-                <span class="project_name"> IT Server Configuration, Fall 2019</span>
+                <span class="project_name"> IT Filer Configuration, Fall 2019</span>
                 <span class="project_description">
-                I utilized Vagrant with Virtualbox as the provider to mirror the William &amp; Mary&rsquo; 
-                Coputer Science Department&rsquo;s filer and lab machines for stability testing.
+                I worked with William &amp; Mary&rsquo; Coputer Science Department to create Vagrantfiles with Virtualbox as the provider to mirror production servers. 
+                The goal of this was to allow for stability testing for lab machines and the Department&rsquo; filer on an IT techician&rsquo; local machine. However, in doing so we
+                reached the limits of what Virtualbox can do as a provider. When trying to find a way to assign WWN&rsquo; to harddrives defined in the Vagrantfile our search of ended 
+                by an Oracle dev stating that he/she could not help us because it would just being giving users "a bigger gun to shoot themselves in the foot, and then they'd complain to us that it hurts."
                 </span>
              </li>
              <li>
@@ -112,8 +116,9 @@
                 [<a href="https://github.com/shortc/homebrewed-shell">code</a>]
                 </span>
                 <span class="project_description">
-                I implemented semaphores and mutex locks in Harvard&rsquo;s OS 161. Created a working, standalone shell in C. 
-                Designed and replicated from scratch OS system calls in C. Parsed MIPS assembly and hooked into the OS to trace system call paths.
+                I implemented semaphores and mutex locks in Harvard&rsquo;s OS 161, parsed MIPS assembly, and hooked into the OS to 
+                trace system call paths in order create basic OS functionality. I also created a working, standalone shell in C. 
+                Designed and replicated from scratch OS system calls in C. 
                 </span>
              </li>
              <li>
@@ -136,7 +141,7 @@
                 <span class="project_description">
                 I evaluated 100 Android appplications for cases of SSL vulnerabilities and permission misuse utilizing 
                 automated and manual analysis of application set with Androgaurd through Bash and Python scripting. 
-                Organized and presented a 4 page IEEE format research paper on findings from analysis.
+                This research culminated in the organization and presentation of a 4 page IEEE format research paper on findings from the analysis.
                 </span>
              </li>
              <li>
@@ -145,8 +150,8 @@
                 [<a href="https://github.com/shortc/tcp-data">code</a>]
                 </span>
                 <span class="project_description">
-                Created a fully-functional implementation of TCP in Java with Go-Back-N as the pipeline protocol. 
-                Created a TCP compliant web server with Java socket programming.
+                I created a fully-functional implementation of TCP in Java with Go-Back-N as the pipeline protocol,
+                and also created a TCP compliant web server with Java socket programming.
                 </span>
              </li>
              <li>
@@ -167,7 +172,6 @@
                 </span>
                 <span class="project_description">
                 I created a replica of the Pong video game using SFML in C++. 
-                Followed Git best-practices for both bug fixinf and feature additions to keep a clean coding environment.
                 </span>
              </li>
              <li>
